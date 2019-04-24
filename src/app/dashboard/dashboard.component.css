@@ -1,0 +1,17 @@
+.dashboard-link{
+    text-align:center;
+    font-family: 'Amatic SC', cursive; 
+    color: white;
+    padding:2px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.dashboard-header{
+    text-align:center;
+    font-family: 'Amatic SC', cursive; 
+    color: white;
+    padding:2px;
+    font-weight: bold;
+    font-size: 3em;
+}
