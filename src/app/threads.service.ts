@@ -16,7 +16,7 @@ export class ThreadsService {
 
   constructor(public afs: AngularFirestore) {
     this.threads = afs.collection('Media Postings').valueChanges();
-    this.threadCollection = this.afs.collection('threads');
+    this.threadCollection = this.afs.collection('Media Postings');
     }
 
     getThreads():Observable<Thread[]>{

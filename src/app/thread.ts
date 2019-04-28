@@ -1,6 +1,10 @@
+
+import { firestore} from 'firebase/app';
+import {Timestamp} from '@firebase/firestore-types'
+
  export interface Thread{
-id?: string;
-category?: string;
-date?: string;
-title?: string;
+Category?: string;
+Content?: string;
+DateTime?: Timestamp;
+Title?: string;
 }

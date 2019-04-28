@@ -1,0 +1,22 @@
+<div class = "card">
+  <div class = "card-content">
+    <span class="card-title">Create Thread!</span>
+    <form (ngSubmit) = onSubmit() class="col s6">
+      <div class= "row">
+        <div class = "input-field col s6">
+          <label for ="title">Title</label>
+          <input type="text" placeholder ="Add Title" [(ngModel)] = 'thrd.Title' name = 'Title'>
+        </div>
+        <div class = "input-field col s6">
+            <label for ="category">Category</label>
+            <input type="text" placeholder ="Add Category" [(ngModel)] = 'thrd.Category' name = 'Category'>
+        </div>
+        <div class = "input-field col s6">
+            <label for ="content">Content</label>
+            <input type="text" placeholder ="Add Content" [(ngModel)] = 'thrd.Content' name = 'Content'>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</div>

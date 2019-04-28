@@ -14,6 +14,7 @@ import { AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
 import { ThreadsService } from './threads.service';
+import { CreateThreadComponent } from './create-thread/create-thread.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ThreadsService } from './threads.service';
     UserBarComponent,
     DashboardComponent,
     AppBodyComponent,
+    CreateThreadComponent,
   ],
   imports: [
     BrowserModule,
