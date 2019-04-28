@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThreadsService} from '../threads.service';
+import { Thread } from '../thread';
 
 @Component({
   selector: 'app-thread-detail',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThreadDetailComponent implements OnInit {
 
-  constructor() { }
+  threads: Thread[] = [];
+
+  constructor(private thrdService: ThreadsService) { }
 
   ngOnInit() {
+    this.thrdService.getThreads()
+    .subscribe(data => {this.threads = data
+    console.log(data);});
   }
 
 }

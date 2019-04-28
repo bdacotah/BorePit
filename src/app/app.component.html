@@ -1,7 +1,13 @@
-<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+<html><head><link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet"></head>
+<body>
+<header><app-header></app-header></header>
 
-<div class="header"><app-header></app-header></div>
-
-<div class="user-bar"><app-user-bar></app-user-bar></div>
-<div class="dashboard"><app-dashboard></app-dashboard></div>
-<div class="app-body"><app-app-body></app-app-body></div>
+<div id = "window">
+    <div id = "leftcolumn"><app-dashboard></app-dashboard></div>
+    <div id = "rightcolumn">
+        <div id = "usermenu"><app-user-bar></app-user-bar></div>
+        <div id = "usercontent"><app-threads></app-threads></div>
+    </div>
+</div>
+</body>
+</html>
