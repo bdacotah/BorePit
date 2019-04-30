@@ -17,18 +17,18 @@ export class ThreadsComponent implements OnInit {
 
   ngOnInit() {
     this.thrdService.getThreads()
-    .subscribe(data => {this.threads = data
-    console.log(data);
+    .subscribe(threads => {this.threads = threads
+    console.log(threads);
   })
   }
 
-  ngOnChanges()
-  {
-    this.thrdService.getThreads()
-    .subscribe(data => {this.threads = data
-    console.log(data);
-  })
-  }
+  // ngOnChanges()
+  // {
+  //   this.thrdService.getThreads()
+  //   .subscribe(data => {this.threads = threads
+  //   console.log(data);
+  // })
+  // }
 
 
   testFunc(){

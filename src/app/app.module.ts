@@ -34,7 +34,7 @@ import { AboutComponent } from './about/about.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'borepit'),
     AngularFirestoreModule,
     AngularFireStorageModule,
     AppRoutingModule

@@ -7,4 +7,5 @@ Category?: string;
 Content?: string;
 DateTime?: Timestamp;
 Title?: string;
+id?: string;
 }
