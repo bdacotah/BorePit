@@ -16,6 +16,7 @@ import {environment} from '../environments/environment';
 import { ThreadsService } from './threads.service';
 import { CreateThreadComponent } from './create-thread/create-thread.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
     DashboardComponent,
     AppBodyComponent,
     CreateThreadComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
