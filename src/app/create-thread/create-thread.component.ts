@@ -4,6 +4,7 @@ import {Thread} from "../thread";
 import {fromEventPattern} from 'rxjs';
 import {firestore} from 'firebase/app';
 import {Timestamp} from '@firebase/firestore-types';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ thrd: Thread = {
   Title: ""
 }
 
-  constructor(private thrdService: ThreadsService) { }
+  constructor(private thrdService: ThreadsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,7 @@ thrd: Thread = {
     this.thrd.Content = "";
     this.thrd.Category = "";
     this.thrd.Title = "";
+    this.router.navigate(['/threads'])
     
   }
 

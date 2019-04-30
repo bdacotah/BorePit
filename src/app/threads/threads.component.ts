@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ThreadsService} from '../threads.service';
 import {Thread} from "../thread";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ThreadsComponent implements OnInit {
 
   threads: Thread[];
 
-  constructor(private thrdService: ThreadsService) { }
+  constructor(private thrdService: ThreadsService, private router: Router) { }
 
   ngOnInit() {
     this.thrdService.getThreads()
@@ -27,6 +28,13 @@ export class ThreadsComponent implements OnInit {
     .subscribe(data => {this.threads = data
     console.log(data);
   })
+  }
+
+
+  testFunc(){
+    
+    this.router.navigate(['/threads'])
+    console.log("testfunc ran")
   }
 
 }
