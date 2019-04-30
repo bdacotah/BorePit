@@ -15,6 +15,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
 import { ThreadsService } from './threads.service';
 import { CreateThreadComponent } from './create-thread/create-thread.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CreateThreadComponent } from './create-thread/create-thread.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AppRoutingModule
   ],
   providers: [ThreadsService],
   bootstrap: [AppComponent]
