@@ -21,4 +21,12 @@ export class ThreadsComponent implements OnInit {
   })
   }
 
+  ngOnChanges()
+  {
+    this.thrdService.getThreads()
+    .subscribe(data => {this.threads = data
+    console.log(data);
+  })
+  }
+
 }
