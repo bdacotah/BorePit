@@ -5,6 +5,16 @@
     padding:2px;
     font-weight: bold;
     font-size: 2em;
+    
+}
+
+.dashboard-link:visited{
+    text-align:center;
+    font-family: 'Amatic SC', cursive; 
+    color: white;
+    padding:2px;
+    font-weight: bold;
+    font-size: 2em;
 }
 
 .dashboard-header{

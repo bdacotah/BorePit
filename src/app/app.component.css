@@ -24,10 +24,11 @@ body {
 
 #leftcolumn {
     float: left;
-    width: 150px;
+    width: 200px;
     max-height: 600px;
     border: 1px solid #111111;
     border-radius: 10px;
+  
     background-color : rgb(147, 148, 147);
 
 }
@@ -37,7 +38,7 @@ body {
     max-height: 800px;
     border-radius: 10px;
     background-color : rgb(175, 147, 147);
-    margin-left: 155px;
+    margin-left: 200px;
 }
 #usermenu {
     border: 1px solid #111111;
