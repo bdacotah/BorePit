@@ -20,21 +20,8 @@ export class ThreadsComponent implements OnInit {
     .subscribe(threads => {this.threads = threads
     console.log(threads);
   })
-  }
-
-  // ngOnChanges()
-  // {
-  //   this.thrdService.getThreads()
-  //   .subscribe(data => {this.threads = threads
-  //   console.log(data);
-  // })
-  // }
-
-
-  testFunc(){
-    
-    this.router.navigate(['/threads'])
-    console.log("testfunc ran")
+  this.threads = this.thrdService.replenishThreads();
+  
   }
 
 }
