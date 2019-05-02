@@ -15,7 +15,9 @@ export class ThreadsService {
 
 
   constructor(public afs: AngularFirestore) {
-    this.threads = this.afs.collection('Media Postings').snapshotChanges().pipe(map(changes => {
+    this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime','desc'));
+
+    this.threads = this.threadCollection .snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Thread;
         data.id = a.payload.doc.id;
@@ -52,8 +54,8 @@ export class ThreadsService {
       console.log(this.threadDoc)
     }
 
-    // removeThread(thrd: Thread){
-    //   this.threadDoc = this.afs.doc()`threads/${item.id}`;
-    // }
+    deleteThread(thread: Thread){
+      //this.threadDoc = this.afs.doc()`threads/${item.id}`;
+     }
 
 }
