@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'createthread', component: CreateThreadComponent},
   {path: '', redirectTo: 'threads', pathMatch: 'full'},
   {path: 'threads', component: ThreadsComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'threaddetails', component: ThreadDetailComponent}
 ];
 
 @NgModule({

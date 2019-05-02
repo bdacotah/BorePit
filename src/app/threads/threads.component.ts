@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./threads.component.css']
 })
 export class ThreadsComponent implements OnInit {
-
   threads: Thread[];
+
 
   constructor(private thrdService: ThreadsService, private router: Router) { }
 
@@ -21,7 +21,11 @@ export class ThreadsComponent implements OnInit {
     console.log(threads);
   })
   this.threads = this.thrdService.replenishThreads();
-  
   }
+
+  onClick(event, thread){
+    this.thrdService.onClick(thread);
+  }
+ 
 
 }

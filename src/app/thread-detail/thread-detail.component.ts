@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThreadsService} from '../threads.service';
 import { Thread } from '../thread';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-thread-detail',
@@ -9,14 +10,16 @@ import { Thread } from '../thread';
 })
 export class ThreadDetailComponent implements OnInit {
 
+  currentThread: Thread;
   threads: Thread[] = [];
 
-  constructor(private thrdService: ThreadsService) { }
+  constructor(public thrdService: ThreadsService, private router: Router, private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.thrdService.getThreads()
-    .subscribe(data => {this.threads = data
-    console.log(data);});
+    this.currentThread = this.thrdService.thread;
+    if (this.currentThread == null) {
+      this.router.navigate(['/threads'])
+    }
   }
 
 }

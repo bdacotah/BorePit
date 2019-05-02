@@ -1,3 +1,14 @@
+<div *ngIf="currentThread != null; else noThread">
 <p>
-  thread-detail works!
+{{currentThread.Title}}
+<br>
+{{currentThread.Category}}
+<br>
+{{currentThread.Content}}
 </p>
+</div>
+
+<ng-template #noThread>
+    <hr>
+    <h5 style = "text-align:center; font-family: 'Amatic SC',cursive; width:100%; font-size: 4em">404, thread not found, redirecting <br><div class="spinner-border text-secondary" ></div></h5>
+</ng-template>

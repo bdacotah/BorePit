@@ -6,11 +6,12 @@ import {map} from 'rxjs/operators';
 
 @Injectable()
 export class ThreadsService {
-
+  public thread: Thread;
   threads: Observable<Thread[]>;
   threadCollection: AngularFirestoreCollection<Thread>;
   threadDoc: AngularFirestoreDocument<Thread>;
   savedThreads: Thread[];
+  currentThreadId: string = null;
 
 
   constructor(public afs: AngularFirestore) {
@@ -43,6 +44,12 @@ export class ThreadsService {
 
     replenishThreads(){
       return this.savedThreads;
+    }
+
+    onClick(thread: Thread){
+      this.threadDoc = this.afs.doc('Media Postings/${thread.id}')
+      this.thread = thread;
+      console.log(this.threadDoc)
     }
 
     // removeThread(thrd: Thread){
