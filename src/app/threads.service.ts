@@ -11,28 +11,23 @@ export class ThreadsService {
   threadCollection: AngularFirestoreCollection<Thread>;
   threadDoc: AngularFirestoreDocument<Thread>;
   savedThreads: Thread[];
-  currentThreadId: string = null;
 
 
   constructor(public afs: AngularFirestore) {
-    this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime','desc'));
-
+    this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime','desc')); // <- This is where the default order is
     this.threads = this.threadCollection .snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Thread;
         data.id = a.payload.doc.id;
         return data;
       });
-    }));
-
+    }))
     // This gives us a backup of what we initially gather up here ^ for our threads component to draw from when it can't subscribe on it's own
     // The only drawback is new information won't load until you've switched views... but this won't be a problem, because
     // users won't be able to tell the difference because they won't be manually changing info on the backend
     this.threads.subscribe(info => {
       this.savedThreads = info
     })
-
-    this.threadCollection = this.afs.collection('Media Postings');
     
   }
 
@@ -49,13 +44,21 @@ export class ThreadsService {
     }
 
     onClick(thread: Thread){
-      this.threadDoc = this.afs.doc('Media Postings/${thread.id}')
+      this.threadDoc = this.afs.doc(`Media Postings/${thread.id}`)
+       this.threadDoc.ref.get().then(function(doc) {
+         if (doc.exists){
+         console.log("Document data:", doc.data()); }
+         else {
+           console.log("No such document");
+         }
+       });
       this.thread = thread;
-      console.log(this.threadDoc)
+      console.log(this.thread)
     }
 
     deleteThread(thread: Thread){
-      //this.threadDoc = this.afs.doc()`threads/${item.id}`;
+      this.threadDoc = this.afs.doc(`Media Postings/${thread.id}`)
+      this.threadDoc.delete();
      }
 
 }
