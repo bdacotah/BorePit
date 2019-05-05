@@ -1,4 +1,4 @@
-<div class="jumbotron text-center" >
+<!-- <div class="jumbotron text-center" > -->
 <div class = "card">
   <div class = "card-content">
     <h1 style = "text-align:center; font-family: 'Amatic SC',cursive;font-size: 4em; padding: 2px; margin: 30px"> <span class="card-title">Submit a Post to the Pit!</span> </h1>
@@ -20,14 +20,14 @@
 
             <!-- select a category -->
           <div class = "form-group">
-       <div class= "row" style = "margin-top: 20px; margin-bottom: 20px">
+       <div class= "row" style = "margin-top: 20px">
               <div class="col-sm-2"> </div>
               <div class = "input-field col-sm-2" style = "text-align:right; font-family: 'Amatic SC',cursive;font-size: 2.5em">
                   <label for = "sel1">Select Category:</label>
                 </div>
              
-                <div class = "col-sm-4"style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 2.5em" >
-                    <select class="form-control" [(ngModel)] = 'thrd.Category' id="sel1" name = 'category'style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 1.5em; height: 70%" >
+                <div class = "col-sm-4"style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 2.0em" >
+                    <select class="form-control" [(ngModel)] = 'thrd.Category' id="sel1" name = 'category'style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 1.0em; height: 70%" >
                         <option>Science</option>
                         <option>Technology</option>
                         <option>Gaming</option>
@@ -38,13 +38,30 @@
     </div>
   
 <!-- content area -->
+<div class = "form-group">
       <div class = "row">
-          <div class = "form-group">
+          <div class="col-sm-2"> </div>
+          <div class = "input-field col-sm-2" style = "text-align:right; font-family: 'Amatic SC',cursive;font-size: 2.5em">
               <label for ="content">Content:</label><br>
-              <textarea class="form-control" rows="5" placeholder ="Add Content" [(ngModel)] = 'thrd.Content' name = 'content'></textarea>
             </div>
-            <input type="submit" value="Submit" class="btn btn-primary">
+
+            <div class = "col-sm-4"style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 2.0em" >
+
+              <textarea class="form-control" rows="5" placeholder ="Add Content" [(ngModel)] = 'thrd.Content' name = 'content'style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 1.0em"></textarea>
+            </div>
+        
         </div>
+        
+           
+      </div>
+      <div class = "row">
+         
+          <div class = "input-field col-sm-12" style = "text-align:center; font-family: 'Amatic SC',cursive;font-size: 2.5em">
+              <input type="submit"style = "text-align:center; font-family: 'Amatic SC',cursive;font-size: 1.5em; margin-bottom: 20px" value="Submit" class="btn btn-primary btn-lg">
+            </div>
+          </div>
+
     </form>
   </div>
 </div>
+<!-- </div> -->
