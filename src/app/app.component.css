@@ -1,7 +1,8 @@
 header {
-    background-color: rgb(31, 31, 31);
+    /* background-color: rgb(31, 31, 31); */
+    background-color: #595959;
     text-align: center;
-    border-radius:10px;
+    /* border-radius:10px; */
 }
 
 
@@ -13,42 +14,43 @@ body {
     min-height: 100%;
     width:100%;
     padding: 0px;
-    background-color: red;
+    background-color :#999999
+    /* background-color: red; */
 }
 
 #window
 {
     border: 1px solid #111111;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 #leftcolumn {
     float: left;
-    width: 200px;
-    max-height: 600px;
-    border: 1px solid #111111;
-    border-radius: 10px;
+    width: 230px;
+    /* max-height: 600px; */
+    /* border: 1px solid #111111; */
+    /* border-radius: 10px; */
   
-    background-color : rgb(147, 148, 147);
+    background-color :#999999
 
 }
-#rightcolumn {
+/* #rightcolumn {
     border: 1px solid #111111;
-    min-height: 600px;
+    min-height: 570px;
     max-height: 800px;
-    border-radius: 10px;
+     border-radius: 10px;
     background-color : rgb(175, 147, 147);
     margin-left: 200px;
-}
+} */
 #usermenu {
     border: 1px solid #111111;
-    border-radius: 10px;
-    background-color: rgb(115, 122, 165);
+    /* border-radius: 10px; */
+    background-color: #00e600;
     height: 50px;
 }
 #usercontent {
     border: 1px solid #111111;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background-color: rgb(129, 165, 115);
     min-height:540px;
     max-height:740px;

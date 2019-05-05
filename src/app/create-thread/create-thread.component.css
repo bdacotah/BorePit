@@ -1,3 +1,10 @@
 body{
-    height: 500px
+    height: 500px;
+    border-color: #00e600;
+    background-color: #00e600;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #00e600;
+    border-color: #00e600;
 }
