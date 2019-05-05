@@ -1,27 +1,43 @@
 <div class="jumbotron text-center" >
 <div class = "card">
   <div class = "card-content">
-    <span class="card-title">Create Thread!</span>
+    <h1 style = "text-align:center; font-family: 'Amatic SC',cursive;font-size: 4em; padding: 2px; margin: 30px"> <span class="card-title">Submit a Post to the Pit!</span> </h1>
     <form (ngSubmit) = onSubmit() class="col s6">
-      <div class= "row">
-        <div class = "input-field col s6">
-          <label for ="title">Title:</label><br> 
-          <input type="text" placeholder ="Add Title" [(ngModel)] = 'thrd.Title' name = 'Title'>
-        </div>
       
+<!-- title -->
       
-      </div>
       <div class= "row">
-          <div class = "form-group">
-              <label for = "sel1">Select Category:</label>
-              <select class="form-control" [(ngModel)] = 'thrd.Category' id="sel1" name = 'category'>
-                <option>Science</option>
-                <option>Technology</option>
-                <option>Gaming</option>
-                <option>News</option>
-              </select>
+          <div class="col-sm-2"> </div>
+        <div class = "input-field col-sm-2" style = "text-align:right; font-family: 'Amatic SC',cursive;font-size: 2.5em">
+            <label for ="title">Title:</label>
+          </div>
+          <div class = "col-sm-4"style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 2.5em" >
+              <input type="text" placeholder ="Add Title" [(ngModel)] = 'thrd.Title' name = 'Title'>
             </div>
+
+          </div>
+
+
+            <!-- select a category -->
+          <div class = "form-group">
+       <div class= "row" style = "margin-top: 20px; margin-bottom: 20px">
+              <div class="col-sm-2"> </div>
+              <div class = "input-field col-sm-2" style = "text-align:right; font-family: 'Amatic SC',cursive;font-size: 2.5em">
+                  <label for = "sel1">Select Category:</label>
+                </div>
+             
+                <div class = "col-sm-4"style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 2.5em" >
+                    <select class="form-control" [(ngModel)] = 'thrd.Category' id="sel1" name = 'category'style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 1.5em; height: 70%" >
+                        <option>Science</option>
+                        <option>Technology</option>
+                        <option>Gaming</option>
+                        <option>News</option>
+                      </select>
+                    </div>
       </div>
+    </div>
+  
+<!-- content area -->
       <div class = "row">
           <div class = "form-group">
               <label for ="content">Content:</label><br>
@@ -31,5 +47,4 @@
         </div>
     </form>
   </div>
-</div>
 </div>
