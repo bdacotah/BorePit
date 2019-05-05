@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ThreadsService} from '../threads.service';
 
 @Component({
   selector: 'app-user-bar',
@@ -9,8 +10,12 @@ import { Location } from '@angular/common';
 })
 export class UserBarComponent implements OnInit {
 
+  filterState: boolean = false;
+
+
   constructor(
-    private location: Location
+    private location: Location,
+    private thrdService: ThreadsService,
   ) {}
 
   ngOnInit() {
@@ -18,4 +23,14 @@ export class UserBarComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  filter(){
+    this.filterState = !this.filterState;
+    console.log(this.filterState)
+  }
+
+  changeOrder(id){
+    this.thrdService.changeOrder(id);
+  }
+
 }

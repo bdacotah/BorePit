@@ -12,6 +12,8 @@ export class ThreadsService {
   threadDoc: AngularFirestoreDocument<Thread>;
   savedThreads: Thread[];
 
+  
+
 
   constructor(public afs: AngularFirestore) {
     this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime','desc')); // <- This is where the default order is
@@ -22,7 +24,7 @@ export class ThreadsService {
         return data;
       });
     }))
-    // This gives us a backup of what we initially gather up here ^ for our threads component to draw from when it can't subscribe on it's own
+    // This(v) gives us a backup of what we initially gather up here (^) for our threads component to draw from when it can't subscribe on it's own
     // The only drawback is new information won't load until you've switched views... but this won't be a problem, because
     // users won't be able to tell the difference because they won't be manually changing info on the backend
     this.threads.subscribe(info => {
@@ -59,6 +61,11 @@ export class ThreadsService {
     deleteThread(thread: Thread){
       this.threadDoc = this.afs.doc(`Media Postings/${thread.id}`)
       this.threadDoc.delete();
+     }
+
+     changeOrder(id){
+      console.log(id) 
+      this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime',id));
      }
 
 }
