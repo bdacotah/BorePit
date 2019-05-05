@@ -24,6 +24,8 @@
     padding:10px;
     font-weight: bold;
     font-size: 4em;
+    text-shadow: 4px 3px #595959;
+
 }
 a{
     margin: 20px;
