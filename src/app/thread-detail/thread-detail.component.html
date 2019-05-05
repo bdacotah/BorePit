@@ -1,8 +1,8 @@
-<div *ngIf="currentThread != null; else noThread">
+<div *ngIf="threadDeleted == false; else noThread">
 <p>
 {{currentThread.Title}}
 <br>
-{{currentThread.DateTime}}
+{{currentThread.DateTime.seconds*1000 | date:'yyyy/MM/dd h:mm:ss a'}}
 <br>
 {{currentThread.Category}}
 <br>

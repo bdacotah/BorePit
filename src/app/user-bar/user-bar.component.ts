@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -10,7 +10,6 @@ import { Location } from '@angular/common';
 export class UserBarComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
     private location: Location
   ) {}
 

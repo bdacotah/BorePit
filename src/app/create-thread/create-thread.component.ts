@@ -33,8 +33,8 @@ thrd: Thread = {
     this.thrd.Content = "";
     this.thrd.Category = "";
     this.thrd.Title = "";
-    this.router.navigate(['/threads'])
-    
+    this.router.navigateByUrl('/threads')
+    console.log('created thread')
   }
 
 }

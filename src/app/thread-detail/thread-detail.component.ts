@@ -14,6 +14,7 @@ export class ThreadDetailComponent implements OnInit {
   currentThread: Thread;
   currentThreadDoc: AngularFirestoreDocument<Thread>;
   threads: Thread[] = [];
+  threadDeleted: boolean = false;
 
   constructor(public thrdService: ThreadsService, private router: Router, private route: ActivatedRoute ) { }
 
@@ -28,6 +29,7 @@ export class ThreadDetailComponent implements OnInit {
 
   deleteThread(thread: Thread){
     console.log(thread)
+    this.threadDeleted = true;
     this.thrdService.deleteThread(thread)
     this.router.navigate(['/threads'])
   }
