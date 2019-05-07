@@ -17,6 +17,7 @@ import { ThreadsService } from './threads.service';
 import { CreateThreadComponent } from './create-thread/create-thread.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutComponent } from './about/about.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AboutComponent } from './about/about.component';
     AppBodyComponent,
     CreateThreadComponent,
     AboutComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

@@ -68,12 +68,12 @@ export class ThreadsService {
       this.threadDoc.delete();
      }
 
-     // This will hopefully be the function that will sort our threads (not working atm)
+     // This is a way to reload the component to view the updated ngFor loop using the modified order
      changeOrder(id){
         this.getAndOrderThreads(id)
         this.setThreads();
         console.log("changing order")
-        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=> this.router.navigate["/threads"]);
+        this.router.navigateByUrl('/loading').then( ()=> this.router.navigateByUrl(`/threads`));
      }
 
 }
