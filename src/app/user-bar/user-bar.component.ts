@@ -10,9 +10,8 @@ import { ThreadsComponent } from '../threads/threads.component';
   styleUrls: ['./user-bar.component.css']
 })
 export class UserBarComponent implements OnInit {
-
+  
   filterState: boolean = false;
-  order: string = "Newest"
 
   constructor(
     private location: Location,
@@ -21,13 +20,13 @@ export class UserBarComponent implements OnInit {
 
   ngOnInit() {
   }
+
   goBack(): void {
     this.location.back();
   }
 
   filter(){
     this.filterState = !this.filterState;
-    console.log(this.filterState)
   }
 
   changeOrder(id){

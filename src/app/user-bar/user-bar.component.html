@@ -2,8 +2,8 @@
 <div *ngIf="this.filterState" style="float: right; height: 10px;">
     <form (ngSubmit)="updateResults">
         <select id="searchType" name="id" value="id" (change)="changeOrder($event.target.value)">
-            <option value = "asc">Newest</option>
-            <option value = "desc">Oldest</option>
+            <option value = "desc">Newest</option>
+            <option value = "asc">Oldest</option>
         </select>
         <input type = "text" name= "search" placeholder="search">
         <input type = "submit" value= "Search">

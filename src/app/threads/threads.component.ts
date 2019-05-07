@@ -16,16 +16,11 @@ export class ThreadsComponent implements OnInit {
 
   ngOnInit() {
     this.thrdService.getThreads().subscribe(threads => {this.threads = threads})
-    this.updateThreads()
+    this.thrdService.setThreads()
   }
 
-  onClick(event, thread){
+  onClick(thread){
     this.thrdService.onClick(thread);
   }
-
-  updateThreads(){
-    this.threads = this.thrdService.replenishThreads();
-  }
  
-
 }
