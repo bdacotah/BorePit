@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ThreadsService} from '../threads.service';
+import { ThreadsComponent } from '../threads/threads.component';
 
 @Component({
   selector: 'app-user-bar',
@@ -11,7 +12,7 @@ import { ThreadsService} from '../threads.service';
 export class UserBarComponent implements OnInit {
 
   filterState: boolean = false;
-
+  order: string = "Newest"
 
   constructor(
     private location: Location,
@@ -30,7 +31,7 @@ export class UserBarComponent implements OnInit {
   }
 
   changeOrder(id){
-    this.thrdService.changeOrder(id);
+     this.thrdService.changeOrder(id);
   }
 
 }

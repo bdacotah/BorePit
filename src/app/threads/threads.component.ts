@@ -11,23 +11,20 @@ import { Router } from '@angular/router';
 })
 export class ThreadsComponent implements OnInit {
   threads: Thread[];
-  counter = 0;
 
   constructor(private thrdService: ThreadsService, private router: Router) { }
 
   ngOnInit() {
-    this.counter++;
-    this.thrdService.getThreads()
-    .subscribe(threads => {this.threads = threads
-    console.log(this.counter);
-      console.log(threads);
-    
-  })
-  this.threads = this.thrdService.replenishThreads();
+    this.thrdService.getThreads().subscribe(threads => {this.threads = threads})
+    this.updateThreads()
   }
 
   onClick(event, thread){
     this.thrdService.onClick(thread);
+  }
+
+  updateThreads(){
+    this.threads = this.thrdService.replenishThreads();
   }
  
 
