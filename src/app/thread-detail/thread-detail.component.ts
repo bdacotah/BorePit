@@ -10,7 +10,6 @@ import { AngularFirestoreDocument} from '@angular/fire/firestore';
   styleUrls: ['./thread-detail.component.css']
 })
 export class ThreadDetailComponent implements OnInit {
-
   currentThread: Thread;
   currentThreadDoc: AngularFirestoreDocument<Thread>;
   threads: Thread[] = [];
@@ -18,17 +17,17 @@ export class ThreadDetailComponent implements OnInit {
 
   constructor(public thrdService: ThreadsService, private router: Router, private route: ActivatedRoute ) { }
 
+  // Honestly, I feel bad because I'm not sure why this works or how it works, but it does so I'm afraid of touching it right now.
   ngOnInit() {
     this.currentThread = this.thrdService.thread;
     this.currentThreadDoc = this.thrdService.threadDoc;
-    console.log(this.currentThreadDoc)
     if (this.currentThread == null) {
       this.router.navigate(['/threads'])
     }
   }
 
+  //  Same as above....
   deleteThread(thread: Thread){
-    console.log(thread)
     this.threadDeleted = true;
     this.thrdService.deleteThread(thread)
     this.router.navigate(['/threads'])

@@ -1,5 +1,5 @@
 <div *ngIf="threads?.length > 0;else noThreads">
-<ul *ngFor = "let thread of threads" class="collection"><li><div class="card"><b><a routerLink="/threaddetails" (click) ="onClick(thread)" routerLinkActive ="active">{{thread.Title}}</a></b></div></li></ul>
+<ul *ngFor = "let thread of threads" class="collection"><li><div class="card"><b><a routerLink="/threaddetails" (click) ="onClick(thread)" routerLinkActive ="active">{{thread.Category}}: {{thread.Title}}</a></b></div></li></ul>
 </div>
 
 <ng-template #noThreads>

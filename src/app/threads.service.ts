@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class ThreadsService {
-  ascOrDesc: string = "desc"; // <--- sorting variable (default is desc)
+  ascOrDesc: string = "desc"; // <--- sorting variable (default is desc) Right now it's only used initially, if time allows, we can incorporate further
 
   // Google Firebase items:
   threadCollection: AngularFirestoreCollection<Thread>;     // This is our firestore collection of type Thread that we use to get info from our database
@@ -24,20 +24,25 @@ export class ThreadsService {
     this.setThreads();
   }
 
-  getAndOrderThreads(id){
-    console.log("ordering by " +id)
-    this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime', id));
-  }
+    // This gets our collection of threads from our Firestore (afs[angular fire store])
+    getAndOrderThreads(id){
+      console.log("ordering by " +id)
+      this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime', id));
+    }
 
-  setThreads(){
-    this.threads = this.threadCollection.snapshotChanges().pipe(map(changes => {                          // This is where we get our observable, and this fancy way of doing so
-      return changes.map(a => {                                                                           // allows us to get the id of each thread so that we can remove them (threads)
-        const data = a.payload.doc.data() as Thread;
-        data.id = a.payload.doc.id;
-        return data;
-      });
-    }))
-  }
+    // This takes our threadCollection and turns it into an Observable
+    // The fancy stuff with the pipe(map(changes(etc))) is necessary for us
+    // to retrieve an ID from our threads in our collection so that we can delete them
+    // and assign them to our thread variable for viewing.
+    setThreads(){
+      this.threads = this.threadCollection.snapshotChanges().pipe(map(changes => {                          // This is where we get our observable, and this fancy way of doing so
+        return changes.map(a => {                                                                           // allows us to get the id of each thread so that we can remove them (threads)
+          const data = a.payload.doc.data() as Thread;
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      }))
+    }
 
     // This is used in our threads components ngOnInit lifecycle hook, it is what gives that component the initial threads that you see
     getThreads():Observable<Thread[]>{
@@ -51,7 +56,7 @@ export class ThreadsService {
 
     // This is what is used to grab the specific thread we wish to view. In our html portion of our threads component, each thread link calls to this method essentially
     onClick(thread: Thread){
-      this.threadDoc = this.afs.doc(`Media Postings/${thread.id}`)
+      // this.threadDoc = this.afs.doc(`Media Postings/${thread.id}`)
       //  this.threadDoc.ref.get().then(function(doc) {                    // <--- This chunk is for debugging, it lets us know if we have a thread or not
       //    if (doc.exists){
       //    console.log("Document data:", doc.data()); }
