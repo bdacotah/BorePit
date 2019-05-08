@@ -32,6 +32,10 @@ export class UserBarComponent implements OnInit {
   // This toggles the div box to show our filtering options (search box, newest /oldest )
   filter(){
     this.filterState = !this.filterState;
+    if (!this.filterState){
+      this.thrdService.ascOrDesc = 'desc'
+      this.changeCategory('all');
+    }
   }
 
   // This calls upon the changeOrder function in our thread service, the id is essentially
@@ -41,7 +45,6 @@ export class UserBarComponent implements OnInit {
   }
 
   changeCategory(category){
-    console.log(category)
     this.thrdService.changeCategory(category);
  }
 

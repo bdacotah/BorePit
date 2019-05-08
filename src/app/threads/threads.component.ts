@@ -3,7 +3,6 @@ import {ThreadsService} from '../threads.service';
 import {Thread} from "../thread";
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-threads',
   templateUrl: './threads.component.html',

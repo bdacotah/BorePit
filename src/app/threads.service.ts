@@ -4,8 +4,6 @@ import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} 
 import { Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Subject} from 'rxjs';
-
 
 
 @Injectable()
@@ -31,12 +29,9 @@ export class ThreadsService{
 
     // This gets our collection of threads from our Firestore (afs[angular fire store])
     getAndOrderThreads(id){
-      console.log("ordering by " +id)
       if (this.category == "all"){
-        console.log("sorting default")
         this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime', id));
       } else {
-        console.log("sorting custom")
         this.threadCollection = this.afs.collection('Media Postings', ref => ref.where('Category', '==', this.category).orderBy('DateTime', id));
       }
     }
@@ -89,13 +84,11 @@ export class ThreadsService{
      changeOrder(id: string){
         this.getAndOrderThreads(id)
         this.setThreads();
-        console.log("changing order")
         this.router.navigateByUrl('/loading');
      }
 
      changeCategory(category){
         this.category = category;
-        console.log("New category:" + this.category)
         this.getAndOrderThreads(this.ascOrDesc)
         this.setThreads();
         this.router.navigateByUrl('/loading');
