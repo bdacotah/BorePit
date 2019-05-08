@@ -20,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { LoadingComponent } from './loading/loading.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

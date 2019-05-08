@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Thread } from './thread';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 import { Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Subject} from 'rxjs';
+
 
 
 @Injectable()
-export class ThreadsService {
-  ascOrDesc: string = "desc"; // <--- sorting variable (default is desc) Right now it's only used initially, if time allows, we can incorporate further
+export class ThreadsService{
+
+  ascOrDesc = "desc"; // <--- sorting variable (default is desc) Right now it's only used initially, if time allows, we can incorporate further
+  category = "all";   // <--- our category sorting variable
+  categories = ["Science", "Technology", "Gaming", "News", "Humor", "Pop Culture", "Movies & Television", "Random"]; // This is our array of categories that threads can be
 
   // Google Firebase items:
   threadCollection: AngularFirestoreCollection<Thread>;     // This is our firestore collection of type Thread that we use to get info from our database
@@ -27,8 +32,15 @@ export class ThreadsService {
     // This gets our collection of threads from our Firestore (afs[angular fire store])
     getAndOrderThreads(id){
       console.log("ordering by " +id)
-      this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime', id));
+      if (this.category == "all"){
+        console.log("sorting default")
+        this.threadCollection = this.afs.collection('Media Postings', ref => ref.orderBy('DateTime', id));
+      } else {
+        console.log("sorting custom")
+        this.threadCollection = this.afs.collection('Media Postings', ref => ref.where('Category', '==', this.category).orderBy('DateTime', id));
+      }
     }
+
 
     // This takes our threadCollection and turns it into an Observable
     // The fancy stuff with the pipe(map(changes(etc))) is necessary for us
@@ -74,11 +86,19 @@ export class ThreadsService {
      }
 
      // This is a way to reload the component to view the updated ngFor loop using the modified order
-     changeOrder(id){
+     changeOrder(id: string){
         this.getAndOrderThreads(id)
         this.setThreads();
         console.log("changing order")
-        this.router.navigateByUrl('/loading').then( ()=> this.router.navigateByUrl(`/threads`));
+        this.router.navigateByUrl('/loading');
+     }
+
+     changeCategory(category){
+        this.category = category;
+        console.log("New category:" + this.category)
+        this.getAndOrderThreads(this.ascOrDesc)
+        this.setThreads();
+        this.router.navigateByUrl('/loading');
      }
 
 }

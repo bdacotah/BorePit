@@ -5,6 +5,8 @@
             <option value = "desc">Newest</option>
             <option value = "asc">Oldest</option>
         </select>
-        <input type = "text" name= "search" placeholder="search">
-        <input type = "submit" value= "Search" (click)= "search(search)">
+        <select id="categoryType" name="category" value="category" (change)="changeCategory($event.target.value)">
+            <option value = "all">All</option>
+            <option *ngFor = "let category of thrdService.categories" value = "{{category}}">{{category}}</option>
+        </select>
     </form></div>

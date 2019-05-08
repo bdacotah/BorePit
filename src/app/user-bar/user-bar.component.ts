@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ThreadsService} from '../threads.service';
-import { ThreadsComponent } from '../threads/threads.component';
+
 
 @Component({
   selector: 'app-user-bar',
@@ -13,6 +12,8 @@ export class UserBarComponent implements OnInit {
   // This is the boolean that keeps track of whether or not our div box will show with
   // our filtering options. It's defaulted to false.
   filterState: boolean = false;
+
+  searchTerm: string = "";
 
   // Our constructor that uses the location and our ThreadsService
   constructor(
@@ -39,9 +40,13 @@ export class UserBarComponent implements OnInit {
      this.thrdService.changeOrder(id);
   }
 
-  // This will (hopefully) be the function that will be used to search for threads
-  search(term){
-    console.log(term)
+  changeCategory(category){
+    console.log(category)
+    this.thrdService.changeCategory(category);
+ }
+
+  clear(){
+    this.searchTerm = "";
   }
 
 }

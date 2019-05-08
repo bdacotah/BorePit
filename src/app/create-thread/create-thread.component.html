@@ -28,14 +28,7 @@
              
                 <div class = "col-sm-4"style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 2.0em" >
                     <select class="form-control" [(ngModel)] = 'thrd.Category' id="sel1" name = 'category'style = "text-align:left; font-family: 'Amatic SC',cursive;font-size: 1.0em; height: 70%" >
-                        <option>Science</option>
-                        <option>Technology</option>
-                        <option>Gaming</option>
-                        <option>News</option>
-                        <option>Humor</option>
-                        <option>Pop Culture</option>
-                        <option>Movies & Television</option>
-                        <option>Random</option>
+                        <option *ngFor = "let category of thrdService.categories">{{category}}</option>
                       </select>
                     </div>
       </div>

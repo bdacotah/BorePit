@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-loading',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
+    this.location.back();
   }
+
 
 }
