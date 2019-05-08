@@ -1,8 +1,10 @@
-<div *ngIf="threads?.length > 0;else noThreads">
-<ul *ngFor = "let thread of threads" class="collection"><li><div class="card"><b><a routerLink="/threaddetails" (click) ="onClick(thread)" routerLinkActive ="active">{{thread.Category}}: {{thread.Title}}</a></b>{{thread.DateTime.seconds*1000 | date:'dd/MM/yyyy: h:mm a'}}</div></li></ul>
+<div *ngIf="threads?.length > 0;else noThreads" style = "color:black">
+<ul *ngFor = "let thread of threads" class="collection" style = "color:black"><li>
+    <div class="card" style = "color:black"><b>
+        <a style="color: black" routerLink="/threaddetails" (click) ="onClick(thread)" routerLinkActive ="active">{{thread.Category}}: {{thread.Title}}</a></b>{{thread.DateTime.seconds*1000 | date:'dd/MM/yyyy: h:mm a'}}</div></li></ul>
 </div>
 
 <ng-template #noThreads>
     <hr>
-    <h5 style = "text-align:center; font-family: 'Amatic SC',cursive; width:100%; font-size: 4em">Loading <br><div class="spinner-border text-secondary" ></div></h5>
+    <h5 style = "font: black; text-align:center; font-family: 'Amatic SC',cursive; width:100%; font-size: 4em">Loading <br><div class="spinner-border text-secondary" ></div></h5>
 </ng-template>

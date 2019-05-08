@@ -1,18 +1,42 @@
+<div class="jumbotron text-LEft" >
 <div *ngIf="threadDeleted == false; else noThread">
-<p>
-{{currentThread.Title}}
-<br>
-{{currentThread.DateTime.seconds*1000 | date:'yyyy/MM/dd h:mm:ss a'}}
-<br>
-{{currentThread.Category}}
-<br>
-{{currentThread.Content}}
-<br><br><button (click) = "deleteThread(currentThread)">Delete thread!</button>
-</p>
 
+
+<div class= "row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-11 title" style = "text-align:Left; font-family: 'Amatic SC',cursive;font-size: 3.0em; font-weight: bold">{{currentThread.Title}} </div>
+        <div class="col-sm-1"><br></div>
+    </div>
+
+       
+
+<div class= "row">
+        <div class="col-sm-1">  </div>
+        <div class="col-sm-11" style = "text-align:Left; font-family: 'Amatic SC',cursive;font-size: 2.0em ">{{currentThread.Content}} </div>
+
+ </div>
+ <div class= "row">
+ </div>
+ <br>
+
+ <div class= "row">
+        <div class="col-sm-1">  </div>
+        <div class="col-sm-11" style = "text-align:Left; font-family: 'Amatic SC',cursive;font-size: 1.5em">Category:{{currentThread.Category}} </div>
+       </div>
+
+
+       <div class= "row">
+            <div class="col-sm-1">  </div>
+            <div class="col-sm-4" style = "text-align:Left; font-family: 'Amatic SC',cursive;font-size: 1.5em">Posted AT:  {{currentThread.DateTime.seconds*1000 | date:'dd/MM/yyyy h:mm a'}} </div>
+            <div class="col-sm-6" style = "text-align:Right; font-family: 'Amatic SC',cursive;font-size: 1.5em"><button (click) = "deleteThread(currentThread)">Delete thread!</button> </div>
+
+        </div>
+ 
+ 
 </div>
 
 <ng-template #noThread>
     <hr>
     <h5 style = "text-align:center; font-family: 'Amatic SC',cursive; width:100%; font-size: 4em">404, thread not found, redirecting <br><div class="spinner-border text-secondary" ></div></h5>
 </ng-template>
+</div>
